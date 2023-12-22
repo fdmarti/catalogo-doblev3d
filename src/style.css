@@ -1,0 +1,41 @@
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+
+	--mainRed: #c1172e;
+	--mainLightRed: #b18087;
+	--mainLightRed2: #bc2700;
+	--mainViolet: #584780;
+	--mainBlue: #344b71;
+	--mainDarkerBlue: #2f4858;
+	--lightBlue: #73b2df;
+	--lighterBlue: #d0f5ff;
+
+	--white : #FFF;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+#app {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+main {
+	min-height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+@media (max-width: 992px) {
+	main {
+		padding: 0 20px;
+	}
+}
