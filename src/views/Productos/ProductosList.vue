@@ -1,5 +1,5 @@
 <template>
-	<div class="productos-list">
+	<div class="productos-list" :class="{ isLoading: loading }">
 		<SpinnerComponent v-if="loading" />
 		<CardComponent
 			v-else

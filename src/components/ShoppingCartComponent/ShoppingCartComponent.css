@@ -1,0 +1,20 @@
+.shopping-cart {
+	color: var(--mainRed);
+	position: relative;
+}
+
+.shopping-cart:hover {
+	cursor: pointer;
+	opacity: 0.8;
+}
+
+.amount-of-orders {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	color: var(--white);
+	background-color: var(--mainRed);
+	font-size: 9px;
+	border-radius: 10px;
+	padding: 2px 4px;
+}

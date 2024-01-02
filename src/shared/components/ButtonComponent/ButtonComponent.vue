@@ -5,11 +5,11 @@
 <script setup lang="ts">
 	import './ButtonComponent.css';
 	interface Props {
-		text: string;
-		state: boolean;
+		text?: string;
+		state?: boolean;
 	}
 	const { text, state } = withDefaults(defineProps<Props>(), {
-		text: 'Agregar al carrito',
-		state: false,
+		text: 'Default text',
+		state: true,
 	});
 </script>

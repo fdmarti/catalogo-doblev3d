@@ -10,15 +10,17 @@
 			<input type="text" class="search-input" placeholder="Buscar artículo" />
 		</div>
 		<div class="menu">
-			<a href="#">Home</a>
-			<a href="#">Sobre nosotros</a>
-			<a href="#">Contacto</a>
+			<RouterLink to="/">Home</RouterLink>
+			<RouterLink to="/about">Sobre nosotros</RouterLink>
+			<RouterLink to="/contact">Contacto</RouterLink>
+			<ShoppingCartComponent />
 		</div>
 	</nav>
 </template>
 
 <script setup lang="ts">
 	import './NavbarComponent.css';
+	import ShoppingCartComponent from '../ShoppingCartComponent/ShoppingCartComponent.vue';
 
 	setInterval(() => {
 		const searchIcon = document.querySelector('.search-icon');

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 	import NavbarComponent from './components/NavbarComponent/NavbarComponent.vue';
-	import ProductosList from './views/Productos/ProductosList.vue';
 </script>
 
 <template>
@@ -8,6 +7,12 @@
 		<NavbarComponent />
 	</header>
 	<main>
-		<ProductosList />
+		<router-view v-slot="{ Component }">
+			<transition name="fade">
+				<KeepAlive>
+					<component :is="Component" />
+				</KeepAlive>
+			</transition>
+		</router-view>
 	</main>
 </template>

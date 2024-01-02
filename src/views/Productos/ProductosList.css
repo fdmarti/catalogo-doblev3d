@@ -1,5 +1,10 @@
 .productos-list {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	display: flex;
+	flex-wrap: wrap;
 	column-gap: 1rem;
+	justify-content: center;
+}
+
+.isLoading {
+	grid-template-columns: repeat(1, 1fr);
 }
