@@ -11,8 +11,10 @@
 	--mainDarkerBlue: #2f4858;
 	--lightBlue: #73b2df;
 	--lighterBlue: #d0f5ff;
+	--bgCart: #dadde2;
 
 	--white: #fff;
+	--black: #000;
 }
 
 * {
@@ -24,7 +26,6 @@
 #app {
 	max-width: 1300px;
 	margin: 0 auto;
-	position: relative;
 }
 
 main {
@@ -56,6 +57,11 @@ textarea:focus {
 .fade-enter,
 .fade-leave-to {
 	opacity: 0;
+}
+
+.stop-scrolling {
+	height: 100%;
+	overflow: hidden;
 }
 
 @media (max-width: 992px) {

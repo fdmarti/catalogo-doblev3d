@@ -13,7 +13,11 @@
 			<span class="price">AR$ {{ producto.preciounitario }}</span>
 			<p class="imp-pais">Incluye impuesto País y percepción AFIP</p>
 
-			<ButtonComponent :state="producto.estado" @click="incrementAmount" text="Agregar al carrito"/>
+			<ButtonComponent
+				:state="producto.estado"
+				@click="addProductToTheCart"
+				:text="buttonText"
+			/>
 		</section>
 	</div>
 </template>
@@ -23,9 +27,9 @@
 	import { ref, onMounted } from 'vue';
 	import { useShopStore } from '../../../store/shopping';
 	import { ButtonComponent } from '..';
-	
+
 	import type { Producto } from '../../../interface/producto';
-	
+
 	interface Props {
 		producto: Producto;
 	}
@@ -33,9 +37,19 @@
 	const { producto } = defineProps<Props>();
 
 	const loadingImage = ref<Boolean>(false);
+	const buttonText = ref<string>('Agregar al carrito');
 
 	const storeShop = useShopStore();
-	const { incrementAmount } = storeShop;
+	const { addToCart } = storeShop;
+
+	const addProductToTheCart = () => {
+		buttonText.value = 'Producto agregado!';
+		addToCart(producto);
+
+		setTimeout(() => {
+			buttonText.value = 'Agregar al carrito';
+		}, 1000);
+	};
 
 	onMounted(() => {
 		setTimeout(() => {

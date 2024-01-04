@@ -7,6 +7,7 @@ export interface Producto {
 	idcategoria?: number;
 	imagen?: string;
 	precioUnitarioVencido?: boolean;
-	preciounitario?: number;
+	preciounitario: number;
 	ventas?: number;
+	amount:number
 }

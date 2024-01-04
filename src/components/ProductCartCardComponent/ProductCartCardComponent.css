@@ -1,0 +1,32 @@
+.product-cart {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 10px;
+	gap: 0.6rem;
+}
+
+.product-cart-content {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.product-cart .product-title {
+	font-size: 18px;
+	font-weight: 800;
+}
+
+.product-cart .price-content {
+	width: 80px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.product-cart .input-amount {
+	max-width: 50px;
+	padding: 5px 15px;
+	text-align: center;
+}

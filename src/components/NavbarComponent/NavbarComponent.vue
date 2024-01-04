@@ -13,14 +13,32 @@
 			<RouterLink to="/">Home</RouterLink>
 			<RouterLink to="/about">Sobre nosotros</RouterLink>
 			<RouterLink to="/contact">Contacto</RouterLink>
-			<ShoppingCartComponent />
+			<ShoppingCartComponent @click="toggleCart" />
 		</div>
+
+		<transition name="slide-fade">
+			<CartComponent v-show="showCart" @closeCart="toggleCart" />
+		</transition>
 	</nav>
 </template>
 
 <script setup lang="ts">
 	import './NavbarComponent.css';
+	import { ref } from 'vue';
 	import ShoppingCartComponent from '../ShoppingCartComponent/ShoppingCartComponent.vue';
+	import CartComponent from '../CartComponent/CartComponent.vue';
+
+	const showCart = ref<boolean>(false);
+
+	const toggleCart = () => {
+		showCart.value = !showCart.value;
+
+		if (showCart.value) {
+			document.body.classList.add('stop-scrolling');
+		} else {
+			document.body.classList.remove('stop-scrolling');
+		}
+	};
 
 	setInterval(() => {
 		const searchIcon = document.querySelector('.search-icon');
