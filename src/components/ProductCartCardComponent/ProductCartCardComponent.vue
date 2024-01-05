@@ -1,5 +1,8 @@
 <template>
 	<section class="product-cart">
+		<p class="delete-product">
+			<i class="bx bx-trash bx-sm" @click="deleteProduct(product)"></i>
+		</p>
 		<img
 			:src="product.imagen"
 			:alt="`Imagen del producto ${product.descripcion}`"
@@ -59,7 +62,7 @@
 		(amountItem) => {
 			if (amountItem === 0) {
 				updatePrice(1);
-				formData.amountItem = 1
+				formData.amountItem = 1;
 				return;
 			}
 
@@ -80,8 +83,12 @@
 		}, 500);
 	};
 
-	const updateAmountPriceInput = (event: Event) => {
+	const updateAmountPriceInput = (event: Event): void => {
 		const target = event.target as HTMLInputElement;
 		formData.amountItem = Number(target.value);
+	};
+
+	const deleteProduct = (product: Producto): void => {
+		shopStore.deleteProductFromCart(product)
 	};
 </script>

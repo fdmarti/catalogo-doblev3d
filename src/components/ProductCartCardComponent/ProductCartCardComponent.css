@@ -12,6 +12,21 @@
 	gap: 1rem;
 }
 
+.delete-product {
+	position: relative;
+	width: 100%;
+}
+
+.delete-product .bx-trash {
+	position: absolute;
+	right: 10px;
+}
+
+.delete-product .bx-trash:hover{
+	cursor: pointer;
+	color: var(--mainLightRed2);
+}
+
 .product-cart .product-title {
 	font-size: 18px;
 	font-weight: 800;

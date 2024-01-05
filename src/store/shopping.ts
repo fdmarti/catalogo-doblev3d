@@ -49,7 +49,6 @@ export const useShopStore = defineStore('shop', {
 		},
 
 		updateProductAmount(product: Producto, newAmount: number): void {
-			this.isLoading = true;
 			this.cart.forEach((prod) => {
 				if (prod.id === product.id) prod.amount = newAmount;
 			});
@@ -58,6 +57,7 @@ export const useShopStore = defineStore('shop', {
 		},
 
 		updateTotalPrice(): void {
+			this.isLoading = true;
 			let total = 0;
 
 			this.cart.forEach((prod) => {
@@ -68,6 +68,20 @@ export const useShopStore = defineStore('shop', {
 			setTimeout(() => {
 				this.isLoading = false;
 			}, 500);
+		},
+
+		deleteProductFromCart(product: Producto): void {
+			const { id } = product;
+			const indexProduct = this.cart.findIndex((prod) => prod.id === id);
+
+			if (indexProduct != -1) {
+				this.cart = this.cart
+					.slice(0, indexProduct)
+					.concat(this.cart.slice(indexProduct + 1));
+
+				this.updateTotalPrice();
+				this.decrementAmount();
+			}
 		},
 	},
 
